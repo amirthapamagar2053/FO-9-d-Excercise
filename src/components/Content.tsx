@@ -1,22 +1,14 @@
-interface CourseStructure {
-  name: string;
-  exerciseCount: number;
-}
+import { CoursePart } from "../App";
+import Part from "./Part";
 interface ContentProps {
-  courseParts: CourseStructure[];
+  courseParts: CoursePart[];
 }
 const Content = (props: ContentProps): JSX.Element => {
   console.log("the props", props.courseParts);
   return (
     <div>
       <>
-        {props.courseParts.map((coursePart, index) => {
-          return (
-            <p key={index}>
-              {coursePart.name} {coursePart.exerciseCount}
-            </p>
-          );
-        })}
+        <Part courseParts={props.courseParts} />
       </>
     </div>
   );
